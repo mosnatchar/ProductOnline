@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../data/product_model.dart';
+import '../../data/product_model.dart';
 
 class ProductDetailPage extends StatelessWidget {
   final Product product;
@@ -9,23 +9,22 @@ class ProductDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title:  Text(
-            product.title,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-          )),
+      appBar: AppBar(
+        title: Text(
+          product.title,
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+        ),
+      ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
           AspectRatio(
             aspectRatio: 16 / 9,
-            child: product.thumbnail.isEmpty
+            child: product.image.isEmpty
                 ? const Center(child: Icon(Icons.image_not_supported, size: 64))
                 : ClipRRect(
                     borderRadius: BorderRadius.circular(12),
-                    child: Image.network(
-                      product.thumbnail,
-                      fit: BoxFit.cover,
-                    ),
+                    child: Image.network(product.image, fit: BoxFit.cover),
                   ),
           ),
           const SizedBox(height: 16),
@@ -43,9 +42,9 @@ class ProductDetailPage extends StatelessWidget {
 
           const SizedBox(height: 16),
 
-           Text(
+          Text(
             product.description,
-            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xFFBDBDBD)),
           ),
 
           // ถ้า Product model ของคุณมี field อื่น (เช่น description) ก็ใส่เพิ่มได้

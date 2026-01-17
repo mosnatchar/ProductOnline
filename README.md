@@ -1,16 +1,16 @@
 # product_test
 
-A new Flutter project.
+A new Flutter project Product List Test.
 
-## Getting Started
+<p float="left">
+  <img src="assets/images/HomeScreen.png" width="200" />
+  <img src="assets/images/DetailScreen.png" width="200" />
+</p>
 
-This project is a starting point for a Flutter application.
+จัดการ state ของหน้า Product List ด้วย Cubit (flutter_bloc) โดยให้มี 3 สถานะหลักใน ProductsState คือ loading / data / error
 
-A few resources to get you started if this is your first Flutter project:
+ตอนเริ่มโหลดหรือกด Retry: Cubit เรียก load() แล้ว emit(loading: true, error: null) เพื่อให้หน้าแสดง CircularProgressIndicator
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+ถ้าโหลดสำเร็จ: Cubit ดึงข้อมูลจาก repository.fetchProducts() แล้ว emit(loading: false, products: items) หน้าเลยไปแสดง GridView
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ถ้าโหลดไม่สำเร็จ: จับ exception แล้ว emit(loading: false, error: message) หน้าแสดง Error + ปุ่ม Retry เพื่อเรียก load() ใหม่อีกครั้ง

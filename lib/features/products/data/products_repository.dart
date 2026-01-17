@@ -1,16 +1,13 @@
-import 'package:dio/dio.dart';
-import '../../../../core/network/dio_client.dart';
 import 'product_model.dart';
+import 'products_api_service.dart';
 
 class ProductsRepository {
-  final Dio _dio;
+  ProductsRepository({required ProductsApiService api}) : _api = api;
 
-  ProductsRepository({Dio? dio}) : _dio = dio ?? DioClient.create();
+  final ProductsApiService _api;
 
   Future<List<Product>> fetchProducts() async {
-    final res = await _dio.get('/products');
-    final data = res.data as Map<String, dynamic>;
-    final list = (data['products'] as List).cast<Map<String, dynamic>>();
+    final list = await _api.fetchProducts();
     return list.map(Product.fromJson).toList();
   }
 }
