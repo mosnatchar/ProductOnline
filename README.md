@@ -1,4 +1,4 @@
-# product_test
+# productList test
 
 A new Flutter project Product List Test.
 
@@ -12,3 +12,8 @@ A new Flutter project Product List Test.
 
 <li> ถ้าโหลดสำเร็จ: Cubit ดึงข้อมูลจาก repository.fetchProducts() แล้ว emit(loading: false, products: items) หน้าเลยไปแสดง GridView </li>
 <li> ถ้าโหลดไม่สำเร็จ: จับ exception แล้ว emit(loading: false, error: message) หน้าแสดง Error + ปุ่ม Retry เพื่อเรียก load() ใหม่อีกครั้ง </li>
+
+<p> AI Tools </p>
+<li> ออกแบบโครงสร้างและสถาปัตยกรรมโค้ด  วางโฟลเดอร์/เลเยอร์ และแยกความรับผิดชอบให้ชัดเจน</li>
+<li> ช่วยเขียน/ปรับโค้ดให้ถูกต้องและอ่านง่าย refactor โค้ดให้สั้นลงและ reusable มากขึ้น</li>
+<li> ปรับ UI/UX และความสวยงามของหน้า </li>
